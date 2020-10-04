@@ -8,3 +8,17 @@ body {
     border: 0;
     
 }
+
+.box {
+    width: 30px;
+    height: 30px;
+
+    @include roundCorners(20px);
+}
+
+.box2 {
+    width: 30px;
+    height: 30px;
+
+    @include roundCorners(50%);
+}
