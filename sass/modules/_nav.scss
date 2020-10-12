@@ -1,18 +1,24 @@
 nav {
     margin :0;
+    list-style-type: none;
+
 
     .nav-item{
-        display: inline-block; margin: 0 10px;
+        text-decoration: none;
+        color: white;
+        padding: 5px;
+        margin: 10px 10px;
 
         background-color: blue;
 
-        @include roundCorners(8px);
+        @include roundCorners(10px);
 
 
-        a{ cursor : pointer; text-decoration: none;}
+        a{ cursor : pointer;}
     }
+    li {display: inline-block;}
 
     :hover{
-        a { color: pink; }
+         a { color: pink; }
     }
 }

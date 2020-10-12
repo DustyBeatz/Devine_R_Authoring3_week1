@@ -11,17 +11,35 @@
     <main id="app">
         <h1 class="hidden">Welcome to my awesome app</h1>
         <nav>
-            <li><a href="#" class="nav-item">item 1</a></li>
-            <li><a href="#" class="nav-item">item 2</a></li>
-            <li><a href="#" class="nav-item">item 3</a></li>
-            <li><a href="#" class="nav-item">item 4</a></li>
-            <li><a href="#" class="nav-item">item 5</a></li>
+            <li><a href="#" class="nav-item">Item 1</a></li>
+            <li><a href="#" class="nav-item">Item 2</a></li>
+            <li><a href="#" class="nav-item">Item 3</a></li>
+            <li><a href="#" class="nav-item">Item 4</a></li>
+            <li><a href="#" class="nav-item">Item 5</a></li>
         </nav>
+
+        <!-- end component-->
+
+
+        <!--add a users section here-->
+        <section class="user-section"></section>
+        <!--end users sections-->
     </main>
 
     <footer>this is a boring footer</footer>
 
     <!--This is where the script files go-->
+
+
+    <!--templates go here (these don't get rendered on the page)-->
+    <template id="profs-template">
+        <div class="user">
+            <h1 class="hidden"></h1>
+            <h2 class="user-name"></h2>
+            <p class="user-role"></p>
+            <p class="user-nickname"></p>
+        </div>
+    </template>
 
     <script type="module" src="js/main.js"></script>
 
