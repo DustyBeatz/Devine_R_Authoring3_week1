@@ -1,13 +1,22 @@
 (() => {
     //start a fetch call
-    fetch('./DataSet.json')
-        .then(res => res.json()) //parse the JSON (translate) back to plain Javascript
-        .then(data => {
-            //this is our data (DataSet.json)
-            //converted  to a plain JavaScript
-            handleDataSet(data);
+    async function fecthData() {
+        let resource = await fetch('./DataSet.json').then(response => {
+            //bang operator - means  "Does not equal" !==
+            if (response.status !== 200) {
+                throw new Error(`DANGER WILL ROBINSON! Error ${response.status}`);
+            }
+
+            return response;
+
         })
-    .catch((error) => console.log(error));
+
+        // if we get success, then we can return back our resource after we parse it into plain JS
+        let dataset = await resource.json();
+
+        return dataset;
+    }
+
 
 
 // this is the data payload from our ajax request, parses it
@@ -38,5 +47,7 @@
         console.log(data);
  
     }
+
+    fecthData().then(data => handleDataSet(data)).catch(err => console.log(err));
 
 })();
