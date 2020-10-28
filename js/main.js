@@ -1,30 +1,13 @@
+import { fetchData } from "./modules/DataMiner.js";
+
 (() => {
-    //start a fetch call
-    async function fecthData() {
-        let resource = await fetch('./DataSet.json').then(response => {
-            //bang operator - means  "Does not equal" !==
-            if (response.status !== 200) {
-                throw new Error(`DANGER WILL ROBINSON! Error ${response.status}`);
-            }
-
-            return response;
-
-        })
-
-        // if we get success, then we can return back our resource after we parse it into plain JS
-        let dataset = await resource.json();
-
-        return dataset;
-    }
-
-
-
 // this is the data payload from our ajax request, parses it
     function handleDataSet(data) {
-
         let userSection = document.querySelector(".user-section"),
         userTemplate = document.querySelector("#profs-template").content;
 
+
+        
 
         for (let user in data) {
 
@@ -47,7 +30,5 @@
         console.log(data);
  
     }
-
-    fecthData().then(data => handleDataSet(data)).catch(err => console.log(err));
-
+    fetchData('./DataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
 })();
