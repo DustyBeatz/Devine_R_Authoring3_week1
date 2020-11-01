@@ -16,4 +16,11 @@
         return dataset;
     }
 
-    export {fetchData};
+    async function postData(sourceURL){
+        //use fetch or Axios to post to a database here
+
+        return "You are using postData API endpoint";
+    }
+
+
+    export {fetchData, postData};
