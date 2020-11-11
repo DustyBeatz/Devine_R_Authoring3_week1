@@ -1,6 +1,14 @@
-import { fetchData } from "./modules/DataMiner.js";
+import { fetchData, postData } from "./modules/DataMiner.js";
 
 (() => {
+
+    console.log('loaded.');
+
+    function popErrorBox(message) {
+        alert("somthing has totally messed up and we need help!");
+    }
+
+
 // this is the data payload from our ajax request, parses it
     function handleDataSet(data) {
         let userSection = document.querySelector(".user-section"),
@@ -30,5 +38,5 @@ import { fetchData } from "./modules/DataMiner.js";
         console.log(data);
  
     }
-    fetchData('./DataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
+    fetchData("./includes/functions.php").then(data => handleDataSet(data)).catch(err => { console.log(err); popErrorBox(err); });
 })();

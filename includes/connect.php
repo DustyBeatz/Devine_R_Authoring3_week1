@@ -14,9 +14,10 @@
 
     try{
         $pdo = new PDO($dsn, $db_user, $db_pass);
-        // var_dump($pdo);
-       // echo "you're in! Enjoy the show!";
     } catch (PDOException $exception){
         echo 'Connection Error:'.$exception->getMessage();
+        exit();
+    } catch (PDOException $exception) {
+        echo 'connection Error:' .$exception->getMessage();
         exit();
     }
